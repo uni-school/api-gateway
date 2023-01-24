@@ -5,6 +5,7 @@ type DefaultConfig struct {
 	Server          Server          `mapstructure:"server"`
 	GRPCServer      GRPCServer      `mapstructure:"GRPCServer"`
 	PasswordHashing PasswordHashing `mapstructure:"passwordHashing"`
+	JWT             JWT             `mapstructure:"jwt"`
 }
 
 type Apps struct {
@@ -27,4 +28,8 @@ type UserMicroservice struct {
 
 type PasswordHashing struct {
 	HashSalt int `mapstructure:"hashSalt"`
+}
+
+type JWT struct {
+	SecretKey string `mapstructure:"secretKey"`
 }

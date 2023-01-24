@@ -7,6 +7,7 @@ import (
 
 type IAuthService interface {
 	RegisterUser(payload *dto_service_auth.RegisterUserDTO) error
+	LoginUser(payload *dto_service_auth.LoginUserDTO) (*dto_service_auth.UserLoggedInDTO, error)
 }
 
 type AuthService struct {

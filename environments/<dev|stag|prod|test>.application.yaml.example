@@ -7,3 +7,5 @@ server:
 GRPCServer:
   userMicroservice:
     baseURL: "127.0.0.1:8181"
+jwt:
+  secretKey: ""
