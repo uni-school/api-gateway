@@ -9,7 +9,9 @@ package wire
 import (
 	"github.com/uni-school/api-gateaway/pkg/core/auth/controller"
 	"github.com/uni-school/api-gateaway/pkg/core/auth/service"
+	"github.com/uni-school/api-gateaway/pkg/core/user/controller"
 	"github.com/uni-school/api-gateaway/pkg/core/user/resource"
+	"github.com/uni-school/api-gateaway/pkg/core/user/service"
 )
 
 // Injectors from wire.go:
@@ -19,4 +21,11 @@ func AuthController() *controller_auth.AuthController {
 	iAuthService := service_auth.InitAuthService(iUserResource)
 	authController := controller_auth.InitAuthController(iAuthService)
 	return authController
+}
+
+func UserController() *controller_user.UserController {
+	iUserResource := resource_user.InitUserResource()
+	iUserService := service_user.InitUserService(iUserResource)
+	userController := controller_user.InitUserController(iUserService)
+	return userController
 }

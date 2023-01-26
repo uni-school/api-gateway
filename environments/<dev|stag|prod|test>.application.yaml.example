@@ -9,3 +9,4 @@ GRPCServer:
     baseURL: "127.0.0.1:8181"
 jwt:
   secretKey: ""
+  expiredDurationInHour: 72

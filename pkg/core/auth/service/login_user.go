@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/golang-jwt/jwt"
+	"github.com/golang-jwt/jwt/v4"
 	"github.com/labstack/echo/v4"
 	dto_service_auth "github.com/uni-school/api-gateaway/pkg/core/auth/service/dto"
 	user_microservice "github.com/uni-school/api-gateaway/proto/user"
@@ -37,8 +37,8 @@ func (s *AuthService) LoginUser(payload *dto_service_auth.LoginUserDTO) (*dto_se
 		Name:  userProtoGrpcGetResult.GetData().GetName(),
 		Email: userProtoGrpcGetResult.GetData().GetEmail(),
 		Role:  constant.UserRole(userProtoGrpcGetResult.GetData().GetRole()),
-		StandardClaims: jwt.StandardClaims{
-			ExpiresAt: time.Now().Add(time.Hour * 72).Unix(),
+		RegisteredClaims: jwt.RegisteredClaims{
+			ExpiresAt: jwt.NewNumericDate(time.Now().Add(time.Hour * time.Duration(config.AppConfig.JWT.ExpiredDurationInHour))),
 		},
 	}
 

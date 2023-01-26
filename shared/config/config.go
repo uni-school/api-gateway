@@ -4,10 +4,14 @@ import (
 	"errors"
 	"flag"
 
+	echojwt "github.com/labstack/echo-jwt/v4"
+	"github.com/labstack/echo/v4"
+	"github.com/golang-jwt/jwt/v4"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 
 	"github.com/uni-school/api-gateaway/shared/constant"
+	"github.com/uni-school/api-gateaway/shared/types"
 )
 
 var (
@@ -46,4 +50,13 @@ func ConfigApps() {
 
 	Environment = constant.EnvironmentType(*environment)
 	AppConfig = &conf
+}
+
+func ConfigureJWT() echojwt.Config {
+	return echojwt.Config{
+		NewClaimsFunc: func(c echo.Context) jwt.Claims {
+			return new(types.JwtCustomClaims)
+		},
+		SigningKey: []byte(AppConfig.JWT.SecretKey),
+	}
 }

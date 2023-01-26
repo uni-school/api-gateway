@@ -11,6 +11,7 @@ import (
 type IUserResource interface {
 	CreateUser(ctx context.Context, in *pb_user_microservice.CreateUserRequest, opts ...grpc.CallOption) (*pb_user_microservice.CreateUserResponse, error)
 	GetUserByEmail(ctx context.Context, in *pb_user_microservice.GetUserByEmailRequest, opts ...grpc.CallOption) (*pb_user_microservice.GetUserByEmailResponse, error)
+	GetListUserByRole(ctx context.Context, in *pb_user_microservice.GetListUserByRoleRequest, opts ...grpc.CallOption) (*pb_user_microservice.GetListUserByRoleResponse, error)
 }
 
 type UserResource struct {

@@ -31,5 +31,6 @@ type PasswordHashing struct {
 }
 
 type JWT struct {
-	SecretKey string `mapstructure:"secretKey"`
+	SecretKey             string `mapstructure:"secretKey"`
+	ExpiredDurationInHour int    `mapstructure:"expiredDurationInHour"`
 }
