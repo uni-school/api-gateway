@@ -33,5 +33,5 @@ func (c *AuthController) LoginUser(ctx echo.Context) error {
 		Token: userDTOLoginResult.Token,
 	}
 
-	return ctx.JSON(http.StatusCreated, response.ResponseSuccess("success login user", userReponseLoginResult))
+	return ctx.JSON(http.StatusOK, response.ResponseSuccess("success login user", userReponseLoginResult))
 }

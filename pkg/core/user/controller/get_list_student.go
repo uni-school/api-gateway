@@ -27,5 +27,5 @@ func (c *UserController) GetListStudent(ctx echo.Context) error {
 		})
 	}
 
-	return ctx.JSON(http.StatusCreated, response.ResponseSuccess("success get list student", userResGetListStudentResponse))
+	return ctx.JSON(http.StatusOK, response.ResponseSuccess("success get list student", userResGetListStudentResponse))
 }
