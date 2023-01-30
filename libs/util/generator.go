@@ -7,7 +7,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-func GanerateUUID() string {
+func GenerateUUID() string {
 	newUUID, err := exec.Command("uuidgen").Output()
 	if err != nil {
 		logrus.Fatal(err)
