@@ -6,7 +6,7 @@ import (
 	"github.com/go-playground/validator/v10"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
-	my_validator "github.com/uni-school/api-gateaway/libs/validator"
+	my_validator "github.com/uni-school/api-gateaway/shared/validator"
 	"github.com/uni-school/api-gateaway/pkg/core"
 	"github.com/uni-school/api-gateaway/shared/config"
 	"github.com/uni-school/api-gateaway/shared/custom"
