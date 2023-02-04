@@ -27,7 +27,6 @@ func AllowedRoles(roles ...constant.UserRole) echo.MiddlewareFunc {
 				}
 			}
 
-
 			return next(c)
 		}
 	}
