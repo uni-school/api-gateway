@@ -20,6 +20,10 @@ func AllowedRoles(roles ...constant.UserRole) echo.MiddlewareFunc {
 				return echo.NewHTTPError(http.StatusUnprocessableEntity, fmt.Sprintf("invalid claims type. correct type: %T", claims))
 			}
 
+			if user.Role == constant.UserRole("") {
+				return echo.NewHTTPError(http.StatusUnprocessableEntity, "user role not exist")
+			}
+
 			if len(roles) > 0 {
 				allowed := util.SliceContain(roles, user.Role)
 				if !allowed {
